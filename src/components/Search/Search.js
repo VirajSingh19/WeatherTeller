@@ -8,7 +8,7 @@ class Search extends React.Component {
   constructor() {
     super();
     this.state = {
-      query: ""
+      query: "208014"
     }
   }
 
@@ -22,13 +22,11 @@ class Search extends React.Component {
     if(search==='')
       alert('Search cannot be empty');
     else
-      this.props.fetchQuery();
+      this.props.fetchQuery(search);
   }
 
   render() {
 
-    console.log('search props are', this.props);
-  
     return (
      <div className="search pa2 br4">
         <input

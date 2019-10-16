@@ -10,6 +10,8 @@ function result(state = [], action) {
   }
 }
 
+
+
 export default combineReducers({
   result
 });
