@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 import { FETCH_DATA } from "../actions";
 
-function result(state = [], action) {
+function result(state = {}, action) {
   switch (action.type) {
     case FETCH_DATA:
       return action.data;

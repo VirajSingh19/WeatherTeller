@@ -8,7 +8,8 @@ class Search extends React.Component {
   constructor() {
     super();
     this.state = {
-      query: "208014"
+      query: "208014",
+      loading: false
     }
   }
 
@@ -26,6 +27,7 @@ class Search extends React.Component {
   }
 
   render() {
+    console.log('search props are',this.props);
 
     return (
      <div className="search pa2 br4">
@@ -42,4 +44,11 @@ class Search extends React.Component {
   }
 }
 
-export default connect(null, {fetchQuery}) (Search);
+
+function mapStateToProps(state) {
+  return {
+    result: state.result
+  }
+}
+
+export default connect(mapStateToProps, {fetchQuery}) (Search);
