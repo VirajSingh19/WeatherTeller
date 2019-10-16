@@ -1,7 +1,6 @@
 import axios from 'axios';
 export const FETCH_DATA = 'FETCH_DATA';
-
-// const apiUrl = 'https://openweathermap.org/data/2.5/find?q=delhi&type=like&sort=population&cnt=30&appid=b6907d289e10d714a6e88b30761fae22';
+export const START_LOADING = "START_LOADING";
 
 export const fetchData = data => {
   return {
@@ -9,6 +8,15 @@ export const fetchData = data => {
     data,
   };
 };
+
+export function startLoading() {
+  return {
+    type: START_LOADING,
+  }
+}
+
+
+
 
 export const fetchQuery = (query) => {
   return (dispatch) => {
@@ -23,3 +31,4 @@ export const fetchQuery = (query) => {
       });
   };
 };
+

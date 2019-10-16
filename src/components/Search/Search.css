@@ -1,6 +1,11 @@
-.search {
+.container {
   display: flex;
   justify-content: center;
+}
+
+.loaderContainer {
+  display: flex;
+  justify-content: space-around;
 }
 
 .inp {

@@ -7,9 +7,11 @@ import rootReducer from "./reducers";
 import thunk from "redux-thunk";
 import "tachyons";
 
+import "font-awesome/css/font-awesome.min.css";
+
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(rootReducer, composeEnhancer(applyMiddleware(thunk)));
-store.subscribe(() => console.log("from subscribe", store.getState()));
+//store.subscribe(() => console.log("from subscribe", store.getState()));
 
 ReactDOM.render(
   <Provider store={store}>
