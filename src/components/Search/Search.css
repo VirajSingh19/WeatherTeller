@@ -1,0 +1,25 @@
+.search {
+  display: flex;
+  justify-content: center;
+}
+
+.inp {
+  background: lightblue;
+  color: black;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 1.5%;
+}
+
+::placeholder {
+    color: lightslategrey
+}
+
+.btn {
+    background: black;
+    border: 2px solid lightblue;
+    border-radius: 10px;
+    color: lightblue;
+    /* font-size: 0.9rem; */
+    
+}
