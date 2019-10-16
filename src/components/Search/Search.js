@@ -1,6 +1,7 @@
 import React from "react";
 import "./Search.css";
 import { connect } from "react-redux";
+import _ from 'lodash';
 import {ToastsContainer, ToastsStore} from 'react-toasts';
 
 import {fetchQuery, startLoading} from "../../actions";
@@ -14,6 +15,13 @@ class Search extends React.Component {
       query: '',
     }
   }
+
+  // componentDidMount() {
+  //   if(this.props.result.list && _.isEmpty(this.props.result.list))
+  //     ToastsStore.warning("No Result")
+  //     else
+  //      return;
+  // }
 
   setQuery(query) {
     this.setState({query});
@@ -57,14 +65,14 @@ class Search extends React.Component {
           </div>
           
           {
-          
           this.props.loading ? 
           <div className='loaderContainer'>
             <Loader />
           </div>
           : 
-          ''   
+          ""   
           }
+
           <ToastsContainer store={ToastsStore}/>
 
       </div>
