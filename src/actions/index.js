@@ -1,13 +1,24 @@
-export const SEARCH = "SEARCH";
+import axios from 'axios';
+export const FETCH_DATA = 'FETCH_DATA';
 
-/**
- * @returns action to change section
- * @param {String} section - 'all', 'pending','purchased'
- */
-export function searchQuery(query) {
-  const action = {
-    type: SEARCH,
-    query,
+const apiUrl = 'https://openweathermap.org/data/2.5/find?q=new delhi&type=like&sort=population&cnt=30&appid=b6907d289e10d714a6e88b30761fae22';
+
+export const fetchData = data => {
+  return {
+    type: FETCH_DATA,
+    data,
   };
-  return action;
-}
+};
+
+export const fetchQuery = () => {
+  return (dispatch) => {
+    return axios.get(apiUrl)
+      .then(response => {
+        console.log("fetch res is ",response);
+        dispatch(fetchData(response.data))
+      })
+      .catch(error => {
+        throw(error);
+      });
+  };
+};
