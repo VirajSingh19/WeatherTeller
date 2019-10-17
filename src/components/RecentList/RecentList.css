@@ -1,0 +1,15 @@
+.rList {
+  align-self: center;
+  /* border: 2px solid blue; */
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  align-items: center;
+  flex-wrap: wrap;
+  
+}
+
+
+.text {
+  color: lightblue;
+}

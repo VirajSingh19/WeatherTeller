@@ -5,8 +5,10 @@ class Card extends React.Component {
   render() {
     const { name, main, wind, sys, clouds } = this.props.value;
     // kelvin to celcius
-    main.temp_max = (main.temp_max - 273.15).toFixed(1);
-    main.temp = (main.temp - 273.15).toFixed(1);
+    if(main.temp > 273) {
+      main.temp_max = (main.temp_max - 273.15).toFixed(1);
+      main.temp = (main.temp - 273.15).toFixed(1);
+    }
 
     const weather = this.props.value.weather[0];
     return (

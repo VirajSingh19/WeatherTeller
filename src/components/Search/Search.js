@@ -2,6 +2,7 @@ import React from "react";
 import "./Search.css";
 import { connect } from "react-redux";
 import { ToastsContainer, ToastsStore } from "react-toasts";
+import _ from "lodash";
 
 import { fetchQuery, startLoading } from "../../actions";
 import Loader from "./Loader/Loader";
@@ -13,13 +14,6 @@ class Search extends React.Component {
       query: "",
     };
   }
-
-  // componentDidMount() {
-  //   if(this.props.result.list && _.isEmpty(this.props.result.list))
-  //     ToastsStore.warning("No Result")
-  //     else
-  //      return;
-  // }
 
   setQuery(query) {
     this.setState({ query });
@@ -36,12 +30,6 @@ class Search extends React.Component {
     }
   }
 
-  _handleKeyDown = e => {
-    if (e.key === "Enter") {
-      console.log("do validate");
-    }
-  };
-
   render() {
     return (
       <div>
@@ -51,6 +39,7 @@ class Search extends React.Component {
             placeholder="city or zipcode"
             type="search"
             onChange={event => this.setQuery(event.target.value)}
+            
             onKeyPress={event => {
               if (event.key === "Enter") {
                 this.search();
@@ -74,6 +63,12 @@ class Search extends React.Component {
           <div className="loaderContainer pa4"></div>
         )}
         <ToastsContainer store={ToastsStore} />
+
+        {/* {this.props.result.list &&
+        !_.isNil(this.props.result.message) &&
+        _.isEmpty(this.props.result.list)
+          ? ToastsStore.warning("No Result")
+          : ""} */}
       </div>
     );
   }
