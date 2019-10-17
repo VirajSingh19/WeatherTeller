@@ -70,9 +70,9 @@ class Search extends React.Component {
             <Loader />
           </div>
           : 
-          ""   
+          <div className='loaderContainer pa2'>
+          </div>
           }
-
           <ToastsContainer store={ToastsStore}/>
 
       </div>
