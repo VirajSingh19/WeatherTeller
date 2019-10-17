@@ -3,32 +3,38 @@ import "./Card.css";
 
 class Card extends React.Component {
   render() {
+    const { name, main, wind, sys, clouds } = this.props.value;
+    // kelvin to celcius
+    main.temp_max = (main.temp_max - 273.15).toFixed(1);
+    main.temp = (main.temp - 273.15).toFixed(1);
+
+    const weather = this.props.value.weather[0];
     return (
       <div className="card pa1 br3">
-        <span className="name f5">
-          'Name', <i className="f5"> 'sys.country' </i>
+        <span className="name f6">
+          {name}, {sys.country}
           <img
             className="ml2 mr2"
-            src="http://openweathermap.org/images/flags/au.png"
+            src={`http://openweathermap.org/images/flags/${sys.country.toLowerCase()}.png`}
             alt="country"
           />
-          <span className="badge f7 mr2">30 °С</span>
-          'Haze'
+          <span style={{ color: "lightblue" }} className="badge f7 mr2">
+            {main.temp} °С
+          </span>
+          {weather.main}
         </span>
         <span className="detail f6">
           <span className="minmax br4">
             <span className="f6">
-              Max temp: <span className="badge f7">30 °С</span>{" "}
+              Max temp: <span className="badge f7">{main.temp_max} °С</span>{" "}
             </span>
-            <span className="f6">
-              Min temp : <span className="badge f7">30 °С</span>{" "}
-            </span>
+            <span className="f6">Clouds : {clouds.all}%</span>
           </span>
           <br />
 
           <span className="minmax br4">
-            <span className="f6"> Wind: 1.5 m/s </span>
-            <span className="f6"> Geo 'coord' [lat,lon] </span>
+            <span className="f6"> Wind: {wind.speed} m/s </span>
+            <span className="f6"> Humidity : {main.humidity} </span>
           </span>
         </span>
       </div>
